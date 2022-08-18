@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<main class="container">
+    @*<div class="p-4 p-md-5 mt-3 mb-4 rounded text-bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+        </div>
+    </div>*@
+
+    <section class="mt-5" id="featuredPost">
+        <div class="row mb-2" >
+            <div class="mb-2">
+                <h3 class="mb-0">Featured post</h3>
+                <hr />
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Motivational</strong>
+                        <h3 class="mb-0">Never Be Disappointed</h3>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="float-end" width="200" height="250" src="~/Content/img/7.jpg" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">Bangladesh</strong>
+                        <h3 class="mb-0">Computer System</h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="float-end" width="200" height="250" src="~/Content/img/2.jpg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><img>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst border-bottom" id="rp">
+                Recent Posts
+            </h3>
+
+            @foreach (var item in ViewBag.recentPost)
+            {
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="mb-3">@item.Title</h4>
+                        <img src="~/Content/img/@item.PostImage" alt="Alternate Text" class="card-img-top img-rounded mb-3" />
+                        <p class="">@item.PublishDate by <a href="#">@item.AuthorID</a></p>
+                        <p>@item.ShortDescription</p>
+                    </div>
+                </div>
+            }
+
+       
+
+
+        <nav class="blog-pagination" aria-label="Pagination">
+            <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+            <a class="btn btn-outline-secondary rounded-pill disabled">Newer</a>
+        </nav>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-secondary bg-opacity-10 shadow-sm rounded-2">
+                    <h4 class="fst-italic">About Our Blog</h4>
+                    <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                </div>
+
+                <div class="p-4 mb-3 bg-secondary bg-opacity-10 shadow-sm rounded-2">
+                    <h4 class="fst-italic">Categories</h4>
+                    <ol class="list-unstyled mb-0">
+
+                        @foreach (var item in ViewBag.categories)
+                        {
+                            <li><a href="#">@item.Name</a></li>
+                        }
+
+                    </ol>
+                </div>
+
+                <div class="p-4 mb-3 bg-secondary bg-opacity-10 shadow-sm rounded-2">
+                    <h4 class="fst-italic">Social Links</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
